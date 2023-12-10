@@ -1,3 +1,8 @@
+'''This is the Final assignment for python for networking security
+    Created By Torrance Mooradian Student #000279721
+    This was created using AI help and tutorials from class
+    Date created: December 9th 2023'''
+
 import argparse, FileFindFunction
 parser=argparse.ArgumentParser(
     description='Enter arguments to blacklist a dns entry',
