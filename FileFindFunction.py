@@ -7,8 +7,8 @@ import os
 # Import platform was found by asking chat GPT
 import platform
 
-operating_system = platform.system()
-
+#operating_system = platform.system()
+operating_system = "Random"
 
 #Testing for file path
 def OSdetail():
@@ -17,13 +17,20 @@ def OSdetail():
     elif operating_system == "Linux":
         os.chdir("/etc/")
     else:
-        MyPath=input("Enter the absolute path of the directory containing your host file")
+        MyPath=input('''Enter the absolute path of the directory containing your hosts file:
+                     example: /etc/ \n''')
         try: 
             os.chdir(MyPath)
         except FileNotFoundError:
             print('''
-                Please try the select the correct Operating System Distribution.
-                If the -OS switch was used please use -OS linux''')
+                Directory is not valid. Please enter a valid directory''')
+            exit()
+    try:
+        if os.path.exists(MyPath + "hosts") == False:
+            raise FileNotFoundError
+    except FileNotFoundError:
+        print("hosts file does not exist in the given directory. Please create the hosts file.")
+        exit()
 
 # This function is used to append and check for existing FQDN entry
 # with open code found @https://pynative.com/python-delete-lines-from-file/
