@@ -8,7 +8,7 @@ import os
 import platform
 
 #operating_system = platform.system()
-operating_system = "Random"
+operating_system = platform.system()
 
 #Testing for file path
 def OSdetail():
